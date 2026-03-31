@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('sname');
-            $table->integer('tin')->unique();
+            $table->string('tin')->unique();
             $table->timestamps();
         });
     }

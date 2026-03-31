@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class organization extends Model
+class Organization extends Model
 {
-    //
+    protected $fillable = ['name', 'sname', 'tin'];
 }
