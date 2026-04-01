@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Organization;
 
 class OrganizationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display alisting of the resource.
      */
     public function index()
     {
-        //
+        $organizations = Organization::all();
+        return view('organization.index', compact('organizations'));
     }
 
     /**
