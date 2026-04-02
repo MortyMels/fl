@@ -21,7 +21,7 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-        //
+        return view('organization.create');
     }
 
     /**
@@ -29,7 +29,14 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+        'name'  => ['required', 'string', 'min:7'],
+        'sname' => ['required', 'string', 'min:3'],
+        // Передаем правила массивом, чтобы regex не ломался
+        'tin'   => ['required', 'string', 'unique:organizations,tin', 'regex:/^\d{10}$/'], 
+        ]);
+        Organization::create($validated);
+        return redirect()->route('organizations.index');
     }
 
     /**
