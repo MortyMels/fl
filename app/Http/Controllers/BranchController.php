@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Organization;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
-class OrganizationController extends Controller
+class BranchController extends Controller
 {
     /**
-     * Display alisting of the resource.
+     * Display a listing of the resource.
      */
     public function index()
     {
-        $organizations = Organization::all();
-        return view('organization.index', compact('organizations'));
+        $branches = Branch::all();
+        return view('branch.index', compact('branches'));
     }
 
     /**
@@ -21,7 +21,9 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-        return view('organization.create');
+        $organizations = \App\Models\Organization::all();
+
+        return view('branch.create', compact('organizations'));
     }
 
     /**
@@ -30,18 +32,19 @@ class OrganizationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+        'organization_id'  => ['required', 'exists:organizations,id'],
         'name'  => ['required', 'string', 'min:7'],
         'sname' => ['required', 'string', 'min:3'],
-        'tin'   => ['required', 'string', 'unique:organizations,tin', 'regex:/^\d{10}$/'], 
+        'address'   => ['required', 'string'], 
         ]);
-        Organization::create($validated);
-        return redirect()->route('organizations.index');
+        Branch::create($validated);
+        return redirect()->route('branches.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Branch $branch)
     {
         //
     }
@@ -49,7 +52,7 @@ class OrganizationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Branch $branch)
     {
         //
     }
@@ -57,7 +60,7 @@ class OrganizationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Branch $branch)
     {
         //
     }
@@ -65,7 +68,7 @@ class OrganizationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Branch $branch)
     {
         //
     }

@@ -1,9 +1,9 @@
 <x-app>
     <ul>
-        @foreach ($organizations as $organization)
+        @foreach ($branches as $branch)
             <li>{{ $organization->name }}</li>
             <li>{{ $organization->sname }}</li>
-            <li>{{ $organization->tin }}</li>
+            <li>{{ $organization->address }}</li>
         @endforeach
     </ul>
 </x-app>
