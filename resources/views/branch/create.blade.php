@@ -1,6 +1,6 @@
 <x-app>
     
-<!-- <form class="max-w-sm mx-auto" action="{{ route('branches.store') }}" method="POST">
+<form class="max-w-sm mx-auto" action="{{ route('branches.store') }}" method="POST">
   <div class="mb-5">
     <label for="organization_id" class="block mb-2.5 text-sm font-medium text-heading">Организация</label>
     <select name="organization_id" id="organization_id" class="block w-full px-3 py-2.5 ...">
@@ -33,6 +33,6 @@
   @error('address')
     <div class="text-red-500 text-xs">{{ $message }}</div>
 @enderror
-</form> -->
+</form>
 
 </x-app>
