@@ -11,6 +11,6 @@ class ChecklistPoint extends Model
 
     public function checklistsection()
     {
-        return $this->belongsTo(ChecklistSection::class);
+        return $this->belongsTo(ChecklistSection::class, 'checklist_section_id');
     }
 }
