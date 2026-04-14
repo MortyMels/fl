@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\ChecklistSectionController;
+use App\Http\Controllers\ChecklistPointController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -9,6 +11,8 @@ Route::view('/', 'welcome')->name('home');
 
 Route::resource('organizations', OrganizationController::class);
 Route::resource('branches', BranchController::class);
+Route::resource('checklistsections', ChecklistSectionController::class);
+Route::resource('checklistpoints', ChecklistPointController::class);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');

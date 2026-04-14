@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('checklist_sections', function (Blueprint $table) {
             $table->id();
-            $tablr->string('name');
+            $table->string('name');
             $table->timestamps();
         });
     }

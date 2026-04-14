@@ -9,7 +9,7 @@ class ChecklistPoint extends Model
 {
     protected $fillable = ['checklist_section_id', 'requirement', 'description'];
 
-    public function checklistsections()
+    public function checklistsection()
     {
         return $this->belongsTo(ChecklistSection::class);
     }
