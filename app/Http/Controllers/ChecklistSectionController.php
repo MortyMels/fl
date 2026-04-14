@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Branch;
+use App\Models\ChecklistSection;
 use Illuminate\Http\Request;
 
-class BranchController extends Controller
+class ChecklistSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $branches = Branch::all();
-        return view('branch.index', compact('branches'));
+        $checklistsections = ChecklistSection::all();
+        return view('checklistsection.index', compact('checklistsections'));
     }
 
     /**
@@ -21,8 +21,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        $organizations = \App\Models\Organization::all();
-        return view('branch.create', compact('organizations'));
+        return view('checklistsection.create');
     }
 
     /**
@@ -31,19 +30,16 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-        'organization_id'  => ['required', 'exists:organizations,id'],
         'name'  => ['required', 'string', 'min:7'],
-        'sname' => ['required', 'string', 'min:3'],
-        'address'   => ['required', 'string'], 
         ]);
-        Branch::create($validated);
-        return redirect()->route('branches.index');
+        ChecklistSection::create($validated);
+        return redirect()->route('checklistsections.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Branch $branch)
+    public function show(ChecklistSection $checklistSection)
     {
         //
     }
@@ -51,7 +47,7 @@ class BranchController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Branch $branch)
+    public function edit(ChecklistSection $checklistSection)
     {
         //
     }
@@ -59,7 +55,7 @@ class BranchController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Branch $branch)
+    public function update(Request $request, ChecklistSection $checklistSection)
     {
         //
     }
@@ -67,7 +63,7 @@ class BranchController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Branch $branch)
+    public function destroy(ChecklistSection $checklistSection)
     {
         //
     }
