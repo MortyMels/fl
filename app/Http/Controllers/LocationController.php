@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\location;
 use App\Models\Branch;
-use App\Models\Organization;
+//use App\Models\Organization;
 use Illuminate\Http\Request;
 
-class BranchController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $branches = Branch::all();
-        return view('branch.index', compact('branches'));
+        $locations = location::all();
+        return view('location.index', compact('locations'));
     }
 
     /**
@@ -22,8 +23,8 @@ class BranchController extends Controller
      */
     public function create()
     {
-        $organizations = Organization::all();
-        return view('branch.create', compact('organizations'));
+        $branches = Branch::all();
+        return view('location.create', compact('branches'));
     }
 
     /**
@@ -32,19 +33,19 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-        'organization_id'  => ['required', 'exists:organizations,id'],
-        'name'  => ['required', 'string', 'min:7'],
-        'sname' => ['required', 'string', 'min:3'],
-        'address'   => ['required', 'string'], 
+            'name' => ['required', 'string', 'max:255'],
+            'branch_id' => ['required', 'exists:branches,id'],
         ]);
-        Branch::create($validated);
-        return redirect()->route('branches.index');
+
+        Location::create($validated);
+
+        return redirect()->route('locations.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Branch $branch)
+    public function show(location $location)
     {
         //
     }
@@ -52,7 +53,7 @@ class BranchController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Branch $branch)
+    public function edit(location $location)
     {
         //
     }
@@ -60,7 +61,7 @@ class BranchController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Branch $branch)
+    public function update(Request $request, location $location)
     {
         //
     }
@@ -68,7 +69,7 @@ class BranchController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Branch $branch)
+    public function destroy(location $location)
     {
         //
     }
