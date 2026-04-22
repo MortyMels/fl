@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entity;
+use App\Models\EntitySection;
 use App\Models\Location;
-use App\Models\Branch;
-//use App\Models\Organization;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+
+class EntityController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $locations = location::all();
-        return view('location.index', compact('locations'));
+        $entities = Entity::all();
+        return view('entities.index', compact('entities'));
     }
 
     /**
@@ -23,8 +24,9 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $branches = Branch::all();
-        return view('location.create', compact('branches'));
+        $entitysections = EntitySection::all();
+        $locations = Location::all();
+        return view ('entities.create', compact('entitysections','locations'));
     }
 
     /**
@@ -34,18 +36,20 @@ class LocationController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'branch_id' => ['required', 'exists:branches,id'],
+            'entity_section_id' => ['required', 'exists:entity_sections,id'],
+            'location_id' => ['required', 'exists:locations,id'],
+            'description' => ['string'],
         ]);
 
-        Location::create($validated);
+        Entity::create($validated);
 
-        return redirect()->route('locations.index');
+        return redirect()->route('entities.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(location $location)
+    public function show(entity $entity)
     {
         //
     }
@@ -53,7 +57,7 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(location $location)
+    public function edit(entity $entity)
     {
         //
     }
@@ -61,7 +65,7 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, location $location)
+    public function update(Request $request, entity $entity)
     {
         //
     }
@@ -69,7 +73,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(location $location)
+    public function destroy(entity $entity)
     {
         //
     }

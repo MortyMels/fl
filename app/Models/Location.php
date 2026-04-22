@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class location extends Model
+class Location extends Model
 {
     protected $fillable = ['branch_id', 'name', 'address'];
     public function branch(): BelongsTo

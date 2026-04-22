@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChecklistPoint;
+use App\Models\ChecklistSection;
 use Illuminate\Http\Request;
 
 class ChecklistPointController extends Controller
@@ -21,7 +22,7 @@ class ChecklistPointController extends Controller
      */
     public function create()
     {
-        $checklistsections = \App\Models\ChecklistSection::all();
+        $checklistsections = ChecklistSection::all();
         return view('checklistpoint.create', compact('checklistsections'));
     }
 
