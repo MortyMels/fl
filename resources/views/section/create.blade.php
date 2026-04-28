@@ -1,6 +1,6 @@
 <x-app>
     
-<form class="max-w-sm mx-auto" action="{{ route('checklistsections.store') }}" method="POST">
+<form class="max-w-sm mx-auto" action="{{ route('sections.store') }}" method="POST">
   <div class="mb-5">
     <label for="name" class="block mb-2.5 text-sm font-medium text-heading">Категория требований</label>
     <input type="text" name="name" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Текст" required />

@@ -1,16 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ChecklistPoint extends Model
+class ChecklistChecklistPoint extends Model
 {
-    protected $fillable = ['checklist_section_id', 'requirement', 'description'];
-
-    public function checklistsection()
-    {
-        return $this->belongsTo(ChecklistSection::class, 'checklist_section_id');
-    }
+    //
 }

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ChecklistSection;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
-class ChecklistSectionController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $checklistsections = ChecklistSection::all();
-        return view('checklistsection.index', compact('checklistsections'));
+        $sections = Section::all();
+        return view('section.index', compact('sections'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ChecklistSectionController extends Controller
      */
     public function create()
     {
-        return view('checklistsection.create');
+        return view('section.create');
     }
 
     /**
@@ -32,14 +32,14 @@ class ChecklistSectionController extends Controller
         $validated = $request->validate([
         'name'  => ['required', 'string', 'min:7'],
         ]);
-        ChecklistSection::create($validated);
-        return redirect()->route('checklistsections.index');
+        Section::create($validated);
+        return redirect()->route('sections.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ChecklistSection $checklistSection)
+    public function show(Section $Section)
     {
         //
     }
@@ -47,7 +47,7 @@ class ChecklistSectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ChecklistSection $checklistSection)
+    public function edit(Section $Section)
     {
         //
     }
@@ -55,7 +55,7 @@ class ChecklistSectionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ChecklistSection $checklistSection)
+    public function update(Request $request, Section $Section)
     {
         //
     }
@@ -63,7 +63,7 @@ class ChecklistSectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ChecklistSection $checklistSection)
+    public function destroy(Section $Section)
     {
         //
     }

@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
-use App\Models\Branch;
+use App\Models\Checklist;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class ChecklistController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $locations = location::all();
-        return view('location.index', compact('locations'));
+        //
     }
 
     /**
@@ -22,8 +20,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $branches = Branch::all();
-        return view('location.create', compact('branches'));
+        //
     }
 
     /**
@@ -31,20 +28,13 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'branch_id' => ['required', 'exists:branches,id'],
-        ]);
-
-        Location::create($validated);
-
-        return redirect()->route('locations.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(location $location)
+    public function show(checklist $checklist)
     {
         //
     }
@@ -52,7 +42,7 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(location $location)
+    public function edit(checklist $checklist)
     {
         //
     }
@@ -60,7 +50,7 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, location $location)
+    public function update(Request $request, checklist $checklist)
     {
         //
     }
@@ -68,7 +58,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(location $location)
+    public function destroy(checklist $checklist)
     {
         //
     }

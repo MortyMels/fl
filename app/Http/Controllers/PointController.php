@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
-use App\Models\Branch;
+use App\Models\Point;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class PointController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $locations = location::all();
-        return view('location.index', compact('locations'));
+        $points = Point::all();
+        return view('point.index', compact('points'));
     }
 
     /**
@@ -22,8 +22,8 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $branches = Branch::all();
-        return view('location.create', compact('branches'));
+        $sections = Section::all();
+        return view('point.create', compact('sections'));
     }
 
     /**
@@ -32,19 +32,18 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'branch_id' => ['required', 'exists:branches,id'],
+        'section_id'  => ['required', 'exists:sections,id'],
+        'requirement'  => ['required', 'string', 'min:7'],
+        'description' => ['required', 'string', 'min:11'],
         ]);
-
-        Location::create($validated);
-
-        return redirect()->route('locations.index');
+        Point::create($validated);
+        return redirect()->route('points.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(location $location)
+    public function show(Point $Point)
     {
         //
     }
@@ -52,7 +51,7 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(location $location)
+    public function edit(Point $Point)
     {
         //
     }
@@ -60,7 +59,7 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, location $location)
+    public function update(Request $request, Point $Point)
     {
         //
     }
@@ -68,7 +67,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(location $location)
+    public function destroy(Point $Point)
     {
         //
     }

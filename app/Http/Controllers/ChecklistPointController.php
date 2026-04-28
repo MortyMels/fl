@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ChecklistPoint;
-use App\Models\ChecklistSection;
+use App\Models\Models\ChecklistPoint;
 use Illuminate\Http\Request;
 
 class ChecklistPointController extends Controller
@@ -13,8 +12,7 @@ class ChecklistPointController extends Controller
      */
     public function index()
     {
-        $checklistpoints = ChecklistPoint::all();
-        return view('checklistpoint.index', compact('checklistpoints'));
+        //
     }
 
     /**
@@ -22,8 +20,7 @@ class ChecklistPointController extends Controller
      */
     public function create()
     {
-        $checklistsections = ChecklistSection::all();
-        return view('checklistpoint.create', compact('checklistsections'));
+        //
     }
 
     /**
@@ -31,13 +28,7 @@ class ChecklistPointController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-        'checklist_section_id'  => ['required', 'exists:checklist_sections,id'],
-        'requirement'  => ['required', 'string', 'min:7'],
-        'description' => ['required', 'string', 'min:11'],
-        ]);
-        ChecklistPoint::create($validated);
-        return redirect()->route('checklistpoints.index');
+        //
     }
 
     /**
@@ -67,7 +58,7 @@ class ChecklistPointController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ChecklistPoint $checklistPoint)
+    public function destroy(ChecklistPoint $ChecklistPoint)
     {
         //
     }
