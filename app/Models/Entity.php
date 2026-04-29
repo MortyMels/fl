@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Entity extends Model
 {
-    protected $fillable = ['entity_section_id', 'location_id', 'name', 'desctiption'];
+    protected $fillable = ['entity_section_id', 'location_id', 'name', 'description'];
 
     public function entitysection()
     {

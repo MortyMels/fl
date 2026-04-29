@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('location_id')->constrained()->onDelete('cascade');
             $table->foreignId('entity_section_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

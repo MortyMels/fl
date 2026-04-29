@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('entity_sections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('is_public')->default(false);
             $table->timestamps();
         });

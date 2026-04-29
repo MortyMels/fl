@@ -33,7 +33,7 @@ class PointController extends Controller
     {
         $validated = $request->validate([
         'section_id'  => ['required', 'exists:sections,id'],
-        'requirement'  => ['required', 'string', 'min:7'],
+        'name'  => ['required', 'string', 'min:7'],
         'description' => ['required', 'string', 'min:11'],
         ]);
         Point::create($validated);

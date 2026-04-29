@@ -32,7 +32,7 @@ class EntitySectionController extends Controller
     {
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'min:11'],
+            'description' => ['nullable', 'string', 'min:11'],
             'is_public' => ['boolean'],
         ]);
 

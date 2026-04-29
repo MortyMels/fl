@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\BranchController;
-use App\Http\Controllers\ChecklistSectionController;
-use App\Http\Controllers\ChecklistPointController;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\PointController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\EntitySectionController;
@@ -14,8 +14,8 @@ Route::view('/', 'welcome')->name('home');
 
 Route::resource('organizations', OrganizationController::class);
 Route::resource('branches', BranchController::class);
-Route::resource('checklistsections', ChecklistSectionController::class);
-Route::resource('checklistpoints', ChecklistPointController::class);
+Route::resource('sections', SectionController::class);
+Route::resource('points', PointController::class);
 Route::resource('locations', LocationController::class);
 Route::resource('entities', EntityController::class);
 Route::resource('entitysections', EntitySectionController::class);
