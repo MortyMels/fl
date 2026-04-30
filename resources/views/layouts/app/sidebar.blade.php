@@ -15,6 +15,75 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
+
+<!-- Organizations -->
+<flux:sidebar.item :href="route('organizations.index')" :current="request()->routeIs('organizations.index')" wire:navigate>
+    {{ __('Organizations') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('organizations.create')" :current="request()->routeIs('organizations.create')" icon="plus" wire:navigate>
+    {{ __('Create Organization') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Branches -->
+<flux:sidebar.item :href="route('branches.index')" :current="request()->routeIs('branches.index')" wire:navigate>
+    {{ __('Branches') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('branches.create')" :current="request()->routeIs('branches.create')" icon="plus" wire:navigate>
+    {{ __('Create Branch') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Sections -->
+<flux:sidebar.item :href="route('sections.index')" :current="request()->routeIs('sections.index')" wire:navigate>
+    {{ __('Sections') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('sections.create')" :current="request()->routeIs('sections.create')" icon="plus" wire:navigate>
+    {{ __('Create Section') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Points -->
+<flux:sidebar.item :href="route('points.index')" :current="request()->routeIs('points.index')" wire:navigate>
+    {{ __('Points') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('points.create')" :current="request()->routeIs('points.create')" icon="plus" wire:navigate>
+    {{ __('Create Point') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Locations -->
+<flux:sidebar.item :href="route('locations.index')" :current="request()->routeIs('locations.index')" wire:navigate>
+    {{ __('Locations') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('locations.create')" :current="request()->routeIs('locations.create')" icon="plus" wire:navigate>
+    {{ __('Create Location') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Entities -->
+<flux:sidebar.item :href="route('entities.index')" :current="request()->routeIs('entities.index')" wire:navigate>
+    {{ __('Entities') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('entities.create')" :current="request()->routeIs('entities.create')" icon="plus" wire:navigate>
+    {{ __('Create Entity') }}
+</flux:sidebar.item>
+
+<flux:separator variant="subtle" />
+
+<!-- Entity Sections -->
+<flux:sidebar.item :href="route('entitysections.index')" :current="request()->routeIs('entitysections.index')" wire:navigate>
+    {{ __('Entity Sections') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('entitysections.create')" :current="request()->routeIs('entitysections.create')" icon="plus" wire:navigate>
+    {{ __('Create Entity Section') }}
+</flux:sidebar.item>
+
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

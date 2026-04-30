@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\HasMany;
 
 class Section extends Model
 {
-    protected $fillable = ['point_id', 'name'];
+    protected $fillable = ['name'];
 
     public function points() 
     {
-        return $this->hasMany(Point::class, 'point_id');
+        return $this->hasMany(Point::class, 'section_id');
     }
 }

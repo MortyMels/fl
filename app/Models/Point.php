@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Point extends Model
 {
-    protected $fillable = ['point_id', 'name', 'description'];
+    protected $fillable = ['section_id', 'name', 'description'];
 
     public function section()
     {

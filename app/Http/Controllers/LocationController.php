@@ -13,7 +13,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = location::all();
+        $locations = Location::all();
         return view('location.index', compact('locations'));
     }
 
