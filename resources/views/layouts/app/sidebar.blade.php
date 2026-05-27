@@ -84,6 +84,14 @@
     {{ __('Create Entity Section') }}
 </flux:sidebar.item>
 
+<!-- Checklists -->
+<flux:sidebar.item :href="route('checklists.index')" :current="request()->routeIs('checklists.index')" wire:navigate>
+    {{ __('Checklists') }}
+</flux:sidebar.item>
+<flux:sidebar.item :href="route('checklists.create')" :current="request()->routeIs('checklists.create')" icon="plus" wire:navigate>
+    {{ __('Create Checklists') }}
+</flux:sidebar.item>
+
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

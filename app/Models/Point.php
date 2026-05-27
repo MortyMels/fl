@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Point extends Model
 {
@@ -12,5 +13,10 @@ class Point extends Model
     public function section()
     {
         return $this->belongsTo(Section::class, 'section_id');
+    }
+
+    public function checklists()
+    {
+        return $this->belongsToMany(Checklist::class, 'checklist_points');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\PointController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\EntitySectionController;
+use App\Http\Controllers\ChecklistController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ Route::resource('points', PointController::class);
 Route::resource('locations', LocationController::class);
 Route::resource('entities', EntityController::class);
 Route::resource('entitysections', EntitySectionController::class);
+Route::resource('checklists', ChecklistController::class);
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

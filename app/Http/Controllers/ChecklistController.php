@@ -12,7 +12,8 @@ class ChecklistController extends Controller
      */
     public function index()
     {
-        //
+        $checklists = Checklist::all();
+        return view('checklist.index', compact('checklists'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ChecklistController extends Controller
      */
     public function create()
     {
-        //
+        return view('checklist.create');
     }
 
     /**
@@ -28,7 +29,11 @@ class ChecklistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'min:7'],
+            'description' => ['required', 'string', 'min:7'],
+        ]);
+        Checklist::create($validated);
     }
 
     /**
