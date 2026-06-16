@@ -34,6 +34,7 @@ class LocationController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'branch_id' => ['required', 'exists:branches,id'],
+            'address' => ['required', 'string', 'max:255'],
         ]);
 
         Location::create($validated);
