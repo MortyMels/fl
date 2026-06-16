@@ -15,8 +15,8 @@ class Point extends Model
         return $this->belongsTo(Section::class, 'section_id');
     }
 
-    public function checklists()
+    public function checklists(): BelongsToMany
     {
-        return $this->belongsToMany(Checklist::class, 'checklist_points');
+        return $this->belongsToMany(Checklist::class, 'checklist_points')->withTimestamps();
     }
 }

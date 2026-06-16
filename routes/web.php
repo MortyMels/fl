@@ -21,6 +21,7 @@ Route::resource('locations', LocationController::class);
 Route::resource('entities', EntityController::class);
 Route::resource('entitysections', EntitySectionController::class);
 Route::resource('checklists', ChecklistController::class);
+Route::post('checklists/{checklist}/add-points', [ChecklistController::class, 'addPoint'])->name('checklists.add-points');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

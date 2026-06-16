@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class checklist extends Model
+class Checklist extends Model
 {
     protected $fillable = ['description', 'name'];
 
-    public function points()
+    public function points(): BelongsToMany
     {
-        return $this->belongsToMany(Point::class, 'checklist_points');
+        return $this->belongsToMany(Point::class, 'checklist_points')->withTimestamps();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checklist;
+use App\Models\Point;
 use Illuminate\Http\Request;
 
 class ChecklistController extends Controller
@@ -34,6 +35,7 @@ class ChecklistController extends Controller
             'description' => ['required', 'string', 'min:7'],
         ]);
         Checklist::create($validated);
+        return redirect()->route('checklists.index');
     }
 
     /**
@@ -49,7 +51,7 @@ class ChecklistController extends Controller
      */
     public function edit(checklist $checklist)
     {
-        //
+        return view('checklist.edit', compact('checklist'));
     }
 
     /**
@@ -66,5 +68,20 @@ class ChecklistController extends Controller
     public function destroy(checklist $checklist)
     {
         //
+    }
+
+    /**
+     * Add a point to checklist
+     */
+    public function addPoint(Request $request, Checklist $checklist)
+    {
+        $validated = $request->validate([
+            'points' => ['array'],
+            'points.*' => ['exists:points,id'],
+        ]);
+
+        $checklist->points()->sync($validated['points'] ?? []);
+
+        return redirect()->route('checklists.edit', $checklist->id);
     }
 }
